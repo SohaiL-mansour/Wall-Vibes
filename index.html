@@ -1,0 +1,1990 @@
+<!doctype html>
+<html lang="ar" dir="ltr" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://ffxnfiumovjmpsxrfhgz.supabase.co https://cdn.jsdelivr.net;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="X-Content-Type-Options" content="nosniff">
+  <meta name="X-Frame-Options" content="DENY">
+  <meta name="X-XSS-Protection" content="1; mode=block">
+  <title>Wall Vibes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Space+Mono:wght@400;700&amp;family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+html, body { height: 100%; margin: 0; background: #000; }
+* { box-sizing: border-box; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #ff1a1a; border-radius: 3px; }
+
+.font-bebas { font-family: 'Bebas Neue', cursive; }
+.font-mono { font-family: 'Space Mono', monospace; }
+.font-handwrite { font-family: 'Caveat', cursive; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .glass { backdrop-filter: blur(8px); }
+  .font-bebas { font-size: 1.2rem; }
+  .font-handwrite { font-size: 1.5rem; }
+  .grid-cols-2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+  .md\\:grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\\:grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .px-4 { padding-left: 1rem; padding-right: 1rem; }
+  .py-12 { padding-top: 2rem; padding-bottom: 2rem; }
+  .text-6xl { font-size: 2.5rem; }
+  .text-4xl { font-size: 2rem; }
+  .text-3xl { font-size: 1.8rem; }
+  .text-2xl { font-size: 1.5rem; }
+  .max-w-6xl { max-width: 100%; }
+  .min-h-\[300px\] { min-height: 200px; }
+
+  #mainNav { padding: 0.5rem 1rem; position: fixed; top: 0; left: 0; right: 0; z-index: 50; }
+  #mainNav .font-bebas { font-size: 1.2rem; }
+  #mainNav button { font-size: 0.75rem; padding: 0.5rem 0.75rem; }
+  #mainNav .p-2 { padding: 0.5rem !important; }
+  #mobileMenu { padding: 1.5rem 1rem; align-items: flex-start; justify-content: flex-start; }
+  #mobileMenu button { width: 100%; max-width: 380px; font-size: 0.95rem; text-align: center; padding: 0.7rem 0.85rem; }
+
+  button, .mag-btn, .shop-cat-btn { font-size: 0.85rem; padding: 0.6rem 0.75rem; }
+
+  .shop-cat-bar { display: flex; flex-wrap: nowrap; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; scrollbar-width: none; -ms-overflow-style: none; }
+  .shop-cat-bar::-webkit-scrollbar { display: none; }
+  .shop-cat-bar button { flex: 0 0 auto; white-space: nowrap; }
+}
+
+@media (max-width: 480px) {
+  .text-6xl { font-size: 2rem; }
+  .text-4xl { font-size: 1.5rem; }
+  .text-3xl { font-size: 1.3rem; }
+  .px-4 { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .p-6 { padding: 1rem; }
+  .gap-6 { gap: 1rem; }
+  .gap-4 { gap: 0.5rem; }
+  #mainNav .font-bebas { font-size: 1.2rem; }
+  #mainNav .text-sm { font-size: 0.75rem; }
+  #mobileMenu button { font-size: 1.5rem; }
+  .glass { padding: 1rem !important; }
+  #page-admin .grid-cols-2,
+  #page-admin .grid-cols-3,
+  #page-admin .grid-cols-4 {
+    grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+  }
+  #page-admin .flex.items-center.justify-between,
+  #page-admin .flex.items-center.justify-between.gap-3 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  #page-admin .flex.items-center.justify-between button,
+  #page-admin .flex.items-center.justify-between select {
+    width: 100%;
+  }
+  #page-admin .font-handwrite.text-4xl,
+  #page-admin .font-handwrite.text-6xl {
+    line-height: 1.1;
+  }
+  #page-admin section.relative.min-h-\[300px\] {
+    min-height: auto !important;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 5px #ff1a1a44, 0 0 20px #ff1a1a22; }
+  50% { box-shadow: 0 0 15px #ff1a1a88, 0 0 40px #ff1a1a44; }
+}
+.pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+
+@keyframes titleGlow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 10px #ff1a1a99,
+      0 0 20px #ff1a1a88,
+      0 0 40px #ff1a1a77,
+      0 0 80px #ff1a1a66,
+      0 0 160px #ff1a1a55,
+      -10px -10px 30px #ff1a1a44,
+      10px -10px 30px #ff1a1a44,
+      -10px 10px 30px #ff1a1a44,
+      10px 10px 30px #ff1a1a44;
+    letter-spacing: 8px;
+    font-weight: 900;
+  }
+  50% { 
+    text-shadow: 
+      0 0 20px #ff1a1aff,
+      0 0 40px #ff1a1acc,
+      0 0 80px #ff1a1a99,
+      0 0 160px #ff1a1a77,
+      0 0 320px #ff1a1a55,
+      -15px -15px 40px #ff1a1a66,
+      15px -15px 40px #ff1a1a66,
+      -15px 15px 40px #ff1a1a66,
+      15px 15px 40px #ff1a1a66;
+    letter-spacing: 12px;
+    font-weight: 900;
+  }
+}
+.title-glow { animation: none; }
+.title-hover-glow:hover { animation: none; }
+
+@keyframes titleHover {
+  0% { transform: scale(1); letter-spacing: 8px; }
+  50% { transform: scale(1.02); letter-spacing: 12px; }
+  100% { transform: scale(1); letter-spacing: 8px; }
+}
+.title-hover-glow:hover { animation: titleHover 0.6s ease-out; }
+
+@keyframes fadeBorders {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+.fade-borders { animation: none; }
+@keyframes slideUp {  
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide-up { opacity: 1; }
+.slide-up-d1 { opacity: 1; }
+.slide-up-d2 { opacity: 1; }
+.slide-up-d3 { opacity: 1; }
+.slide-up-d4 { opacity: 1; }
+.slide-up-d5 { opacity: 1; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-anim { animation: float 3s ease-in-out infinite; }
+
+.tilt-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.tilt-card:hover {
+  transform: scale(1.04) rotateX(2deg) rotateY(-2deg);
+  box-shadow: 0 0 30px #ff1a1a55, 0 20px 60px rgba(0,0,0,0.8);
+}
+
+@keyframes colorGlow {
+  0% { 
+    color: #ffffff;
+    text-shadow: none;
+  }
+  50% { 
+    color: #ff1a1a;
+    text-shadow: 0 0 10px #ff1a1a, 0 0 20px #ff1a1a88, 0 0 30px #ff1a1a44;
+  }
+  100% { 
+    color: #ffffff;
+    text-shadow: none;
+  }
+}
+
+.cat-name {
+  animation: colorGlow 2s ease-in-out infinite !important;
+  font-weight: bold !important;
+}
+
+@keyframes cardZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.category-card {
+  transition: all 0.3s ease;
+  border-color: #ffffff33 !important;
+  position: relative;
+  overflow: hidden;
+  padding: 0 !important;
+  aspect-ratio: 1 / 1;
+}
+
+.category-card:hover {
+  border-color: #ff1a1a88 !important;
+  box-shadow: 0 0 20px #ff1a1a44, 0 0 40px #ff1a1a22 !important;
+  transform: translateY(-8px) scale(1.02);
+  animation: cardZoom 0.6s ease-out;
+}
+
+.category-card:hover .cat-emoji,
+.category-card:hover img {
+  transform: scale(1.15);
+}
+
+.cat-name {
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* تعديل حاوية الصورة داخل البطاقة */
+.category-card .relative.w-full.aspect-square {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* تعديل طبقة النص لتظهر دائماً فوق الصورة */
+.category-card .p-4.bg-gradient-to-t {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent) !important;
+}
+
+/* باقي التنسيقات الخاصة بك */
+.glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,26,26,0.15);
+}
+
+.neon-border { border: 1px solid #ff1a1a33; }
+.neon-border:hover { border-color: #ff1a1a88; }
+
+.cart-modal-show {
+  display: flex !important;
+}
+
+.zoom-lens {
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
+}
+.zoom-lens img {
+  transition: transform 0.1s ease-out;
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-200px) rotate(720deg); opacity: 0; }
+}
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  animation: confetti 1.5s ease-out forwards;
+}
+
+@keyframes celebration {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.celebrate { animation: celebration 0.6s ease-out forwards; }
+
+.mag-btn {
+  transition: transform 0.2s ease;
+}
+.mag-btn:hover {
+  transform: scale(1.08);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #ff1a1a !important;
+  box-shadow: 0 0 0 2px #ff1a1a33;
+}
+
+/* PAGE TRANSITIONS */
+.page {
+  animation: pageIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BUTTON ANIMATIONS - BLACK TO RED GLOW */
+button, input[type="submit"], input[type="button"] {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+@keyframes buttonPressGlow {
+  0% {
+    box-shadow: 
+      0 0 0 rgba(255, 26, 26, 0),
+      inset 0 0 0 rgba(0, 0, 0, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(255, 26, 26, 0.6),
+      0 0 40px rgba(255, 26, 26, 0.3),
+      inset 0 0 20px rgba(255, 26, 26, 0.2);
+    transform: scale(0.98);
+  }
+  100% {
+    box-shadow: 
+      0 0 10px rgba(255, 26, 26, 0.4),
+      0 0 20px rgba(255, 26, 26, 0.2),
+      inset 0 0 0 rgba(0, 0, 0, 0.8);
+    transform: scale(1);
+  }
+}
+
+/* BUTTON CLICK ANIMATION */
+button:active:not(:disabled),
+input[type="submit"]:active:not(:disabled),
+input[type="button"]:active:not(:disabled) {
+  animation: buttonPressGlow 0.6s ease-out;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* GLOW BOX FOR BUTTONS */
+button:not(.mag-btn):not(.shop-cat-btn) {
+  box-shadow: 0 0 0 1px rgba(255, 26, 26, 0.2);
+}
+
+button:not(.mag-btn):not(.shop-cat-btn):hover {
+  box-shadow: 
+    0 0 10px rgba(255, 26, 26, 0.4),
+    0 0 20px rgba(255, 26, 26, 0.2);
+}
+
+button[style*="background:"] {
+  box-shadow: 0 0 0 2px rgba(255, 26, 26, 0.1);
+}
+
+button[style*="background:"]:hover {
+  box-shadow: 
+    0 0 10px rgba(255, 26, 26, 0.4),
+    0 0 20px rgba(255, 26, 26, 0.2);
+}
+
+/* NAV BUTTONS STYLING */
+#mainNav button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 26, 26, 0.05);
+  border: 1px solid rgba(255, 26, 26, 0.15);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(255, 26, 26, 0);
+}
+
+#mainNav button:hover {
+  background: rgba(255, 26, 26, 0.1);
+  box-shadow: 
+    0 0 10px rgba(255, 26, 26, 0.4),
+    0 0 20px rgba(255, 26, 26, 0.2);
+}
+
+#mainNav button:active {
+  animation: buttonPressGlow 0.6s ease-out;
+}
+
+/* MOBILE MENU BUTTONS */
+#mobileMenu button {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 26, 26, 0.05);
+  border: 2px solid rgba(255, 26, 26, 0.2);
+  transition: all 0.3s ease;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#mobileMenu button:hover {
+  background: rgba(255, 26, 26, 0.1);
+  box-shadow: 
+    0 0 15px rgba(255, 26, 26, 0.5),
+    0 0 30px rgba(255, 26, 26, 0.3);
+}
+
+#mobileMenu button:active {
+  animation: buttonPressGlow 0.6s ease-out;
+}
+
+/* SHOP CATEGORY BUTTONS */
+.shop-cat-btn {
+  box-shadow: 0 0 0 2px rgba(255, 26, 26, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+}
+
+.shop-cat-btn:hover {
+  box-shadow: 
+    0 0 10px rgba(255, 26, 26, 0.4),
+    0 0 20px rgba(255, 26, 26, 0.2);
+}
+
+.shop-cat-btn:active {
+  animation: buttonPressGlow 0.6s ease-out;
+}
+
+/* CTA BUTTONS (PRIMARY) */
+button[style*="background:#ff1a1a"],
+button[style*="background:rgb(255, 26, 26)"] {
+  min-width: 100px;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  box-shadow: 
+    0 0 0 rgba(255, 26, 26, 0.3),
+    inset 0 0 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+button[style*="background:#ff1a1a"]:hover,
+button[style*="background:rgb(255, 26, 26)"]:hover {
+  box-shadow: 
+    0 0 15px rgba(255, 26, 26, 0.5),
+    0 0 30px rgba(255, 26, 26, 0.3),
+    inset 0 0 10px rgba(255, 26, 26, 0.2);
+}
+
+button[style*="background:#ff1a1a"]:active,
+button[style*="background:rgb(255, 26, 26)"]:active {
+  animation: buttonPressGlow 0.6s ease-out;
+}
+
+/* FORM INPUTS */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  box-shadow: 0 0 0 2px rgba(255, 26, 26, 0.05);
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 
+    0 0 10px rgba(255, 26, 26, 0.3),
+    0 0 20px rgba(255, 26, 26, 0.15);
+}
+
+/* MODAL TRANSITIONS */
+.fixed.inset-0.bg-black {
+  animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+</style>
+  
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        neon: '#ff1a1a',
+        dark: { 900: '#000000', 800: '#0a0a0a', 700: '#111111', 600: '#1a1a1a' }
+      }
+    }
+  }
+}
+</script>
+ </head>
+ <body class="h-full bg-black text-white font-mono overflow-x-hidden">
+  <div id="app" class="h-full w-full overflow-auto"><!-- NAV -->
+   <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 glass px-4 py-3 flex items-center justify-between" style="background:rgba(0,0,0,0.85);backdrop-filter:blur(16px);border-bottom:1px solid #ff1a1a22;">
+    <div class="flex items-center gap-2 cursor-pointer transition-all hover:scale-105 duration-300" onclick="navigateTo('home')" style="padding: 0.5rem 1rem; border-radius: 0.75rem; background: rgba(255, 26, 26, 0.05); border: 1px solid rgba(255, 26, 26, 0.15);"><span id="navLogoEl" class="text-2xl" style="display: inline-block; width: 40px; height: 40px; background-size: contain; background-repeat: no-repeat; background-position: center;">🔥</span> <span class="font-bebas text-3xl tracking-wider hidden sm:inline" id="navTitle" style="color: #ff1a1a; transition: all 0.3s ease;">WALL VIBES</span>
+    </div>
+    <div class="hidden md:flex items-center gap-3"><button onclick="navigateTo('home')" class="nav-btn text-gray-400 hover:text-neon transition text-sm tracking-wider px-4 py-2 rounded-lg border border-transparent hover:border-neon hover:bg-neon hover:bg-opacity-5" style="min-height: 40px;">الرئيسية</button> <button onclick="navigateTo('shop')" class="nav-btn text-gray-400 hover:text-neon transition text-sm tracking-wider px-4 py-2 rounded-lg border border-transparent hover:border-neon hover:bg-neon hover:bg-opacity-5" style="min-height: 40px;">المتجر</button> <button onclick="navigateTo('special')" class="nav-btn text-gray-400 hover:text-neon transition text-sm tracking-wider px-4 py-2 rounded-lg border border-transparent hover:border-neon hover:bg-neon hover:bg-opacity-5" style="min-height: 40px;">تصميم مخصص</button>
+    </div>
+    <div class="flex items-center gap-3"><button onclick="toggleCartModal()" class="relative mag-btn p-2 rounded-lg neon-border hover:bg-neon hover:bg-opacity-10 transition" style="min-height: 40px; min-width: 40px; display: flex; align-items: center; justify-content: center;"> <i data-lucide="shopping-cart" class="w-5 h-5 text-white"></i> <span id="cartBadge" class="absolute -top-1 -right-1 bg-neon text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span> </button> <button onclick="navigateTo('admin')" class="p-2 rounded-lg neon-border hover:bg-neon hover:bg-opacity-10 transition md:block hidden" style="min-height: 40px; min-width: 40px; display: flex; align-items: center; justify-content: center;"> <i data-lucide="settings" class="w-5 h-5 text-gray-500"></i> </button> <button onclick="toggleMobileMenu()" class="p-2 md:hidden" style="min-height: 40px; min-width: 40px; display: flex; align-items: center; justify-content: center;"> <i data-lucide="menu" class="w-5 h-5 text-white"></i> </button>
+    </div>
+   </nav><!-- Mobile Menu -->
+   <div id="mobileMenu" class="fixed inset-0 z-40 bg-black bg-opacity-95 flex flex-col items-center justify-center gap-6 hidden" style="padding: 2rem; overflow-y: auto;"><button onclick="navigateTo('home');toggleMobileMenu()" class="w-full max-w-sm font-bebas text-3xl text-white hover:text-neon transition px-6 py-4 rounded-lg border-2 border-neon border-opacity-20 hover:border-opacity-100 hover:bg-neon hover:bg-opacity-5" style="min-height: 50px;">الرئيسية</button> <button onclick="navigateTo('shop');toggleMobileMenu()" class="w-full max-w-sm font-bebas text-3xl text-white hover:text-neon transition px-6 py-4 rounded-lg border-2 border-neon border-opacity-20 hover:border-opacity-100 hover:bg-neon hover:bg-opacity-5" style="min-height: 50px;">المتجر</button> <button onclick="navigateTo('special');toggleMobileMenu()" class="w-full max-w-sm font-bebas text-3xl text-white hover:text-neon transition px-6 py-4 rounded-lg border-2 border-neon border-opacity-20 hover:border-opacity-100 hover:bg-neon hover:bg-opacity-5" style="min-height: 50px;">تصميم مخصص</button> <button onclick="navigateTo('admin');toggleMobileMenu()" class="w-full max-w-sm font-bebas text-3xl text-gray-600 hover:text-neon transition px-6 py-4 rounded-lg border-2 border-neon border-opacity-20 hover:border-opacity-100 hover:bg-neon hover:bg-opacity-5" style="min-height: 50px;">الإدارة</button> <button onclick="toggleMobileMenu()" class="mt-8 p-3 rounded-full neon-border" style="min-height: 50px; min-width: 50px; display: flex; align-items: center; justify-content: center;"><i data-lucide="x" class="w-8 h-8 text-neon"></i></button>
+   </div><!-- CART MODAL -->
+   <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4 overflow-auto" style="backdrop-filter: blur(8px);" onclick="if(event.target.id === 'cartModal') toggleCartModal()">
+    <div class="glass rounded-2xl max-w-2xl w-full my-auto slide-up">
+      <div class="p-5 border-b border-gray-800 flex items-center justify-between">
+        <h2 class="font-bebas text-2xl tracking-wider">🛒 سلتك</h2>
+        <button onclick="toggleCartModal()" class="p-2 rounded-lg hover:bg-gray-800 transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+      <div id="cartItems" class="p-4 space-y-3 max-h-96 overflow-auto"></div>
+      <div id="cartFooter" class="p-5 border-t border-gray-800"></div>
+    </div>
+   </div><!-- PAGES -->
+   <div id="page-home" class="page pt-16"></div>
+   <div id="page-shop" class="page pt-20 hidden"></div>
+   <div id="page-product" class="page pt-20 hidden"></div>
+   <div id="page-checkout" class="page pt-20 hidden"></div>
+   <div id="page-special" class="page pt-20 hidden"></div>
+   <div id="page-admin" class="page pt-20 hidden"></div>
+   <div id="page-order-success" class="page pt-20 hidden"></div>
+  </div>
+  <script>
+// ========== SUPABASE CONFIG ==========
+const SUPABASE_URL = 'https://ffxnfiumovjmpsxrfhgz.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_CFFB-aVWyDsu8Y8uRGHDOw_4BSHh4Xp';
+
+// Simple Supabase client
+async function supabaseCall(table, method, data = null) {
+  const headers = {
+    'Authorization': `Bearer ${SUPABASE_KEY}`,
+    'Content-Type': 'application/json',
+    'apikey': SUPABASE_KEY
+  };
+
+  try {
+    let url = `${SUPABASE_URL}/rest/v1/${table}`;
+    let options = { headers, method };
+
+    if (method === 'GET') {
+      const response = await fetch(url, options);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const text = await response.text();
+      return { ok: true, data: text ? JSON.parse(text) : [] };
+    } else if (method === 'POST') {
+      options.body = JSON.stringify(data);
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error('Supabase error response:', errText);
+        throw new Error(`HTTP ${response.status}: ${errText}`);
+      }
+      const text = await response.text();
+      return { ok: true, data: text ? JSON.parse(text) : [] };
+    } else if (method === 'PATCH') {
+      url += `?id=eq.${data.id}`;
+      const { id, ...updateData } = data;
+      options.body = JSON.stringify(updateData);
+      const response = await fetch(url, options);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const text = await response.text();
+      return { ok: true, data: text ? JSON.parse(text) : [] };
+    } else if (method === 'DELETE') {
+      url += `?id=eq.${data.id}`;
+      const response = await fetch(url, options);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return { ok: true, data: null };
+    }
+  } catch (err) {
+    console.error(`Supabase ${method} error:`, err);
+    return { ok: false, error: err.message };
+  }
+}
+
+// ========== STATE ==========
+let cart = [];
+let orders = [];
+let currentPage = 'home';
+let currentCategory = 'all';
+let currentProduct = null;
+let adminUnlocked = false;
+const ADMIN_PASS = '3abotos';
+
+const defaultConfig = {
+  site_logo: '🔥',
+  site_logo_image: '',
+  hero_title: 'POSTERS FOR EVERY VIBE',
+  hero_title_image: '',
+  hero_subtitle: 'Express yourself. Define your space.',
+  background_color: '#000000',
+  surface_color: '#111111',
+  text_color: '#ffffff',
+  primary_color: '#ff1a1a',
+  secondary_color: '#888888',
+  font_family: 'Bebas Neue',
+  font_size: 16,
+  cat_cars_image: 'https://i.pinimg.com/736x/27/da/5e/27da5ea9631410218b5b73e7b9ffe061.jpg',
+  cat_football_image: '',
+  cat_cinema_image: 'https://i.pinimg.com/1200x/b5/81/42/b58142542eea9b4d6757c952f6233ece.jpg',
+  cat_anime_image: '',
+  cat_gaming_image: '',
+  cat_minimalist_image: ''
+};
+
+// ========== PRODUCTS (من Supabase) ==========
+let PRODUCTS = [];
+
+// Category cover images storage
+let categoryCoverImages = {};
+
+// اجعل هذه الدالة تقرأ من الإعدادات الافتراضية فقط
+function loadCategoryCovers() {
+    categoryCoverImages = {
+        'cars': defaultConfig.cat_cars_image,
+        'football': defaultConfig.cat_football_image,
+        'cinema': defaultConfig.cat_cinema_image,
+        'anime': defaultConfig.cat_anime_image,
+        'gaming': defaultConfig.cat_gaming_image,
+        'minimalist': defaultConfig.cat_minimalist_image
+    };
+}
+
+// تعطيل الحفظ في الذاكرة المحلية نهائياً
+function saveCategoryCovers() {
+    return; 
+}
+
+const CATEGORIES = [
+  { id:'cars', name:'CARS', emoji:'🏎️' },
+  { id:'football', name:'FOOTBALL', emoji:'⚽' },
+  { id:'cinema', name:'CINEMA', emoji:'🎬' },
+  { id:'anime', name:'ANIME', emoji:'✨' },
+  { id:'gaming', name:'GAMING', emoji:'🎮' },
+  { id:'randoms', name:'RANDOMS', emoji:'🎨' },
+];
+
+// ========== HELPER FUNCTIONS ==========
+function getCategoryImage(categoryId) {
+  return categoryCoverImages[categoryId] || '';
+}
+function navigateTo(page, data) {
+  // Fade out current pages
+  document.querySelectorAll('.page').forEach(p => { 
+    if (!p.classList.contains('hidden')) {
+      p.style.opacity = '0';
+      p.style.transition = 'opacity 0.2s ease-out, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      p.style.transform = 'translateY(-15px)';
+    }
+  });
+
+  // Wait for fade out, then switch pages
+  setTimeout(() => {
+    document.querySelectorAll('.page').forEach(p => { p.classList.add('hidden'); p.innerHTML = ''; });
+    currentPage = page;
+    const el = document.getElementById('page-' + page);
+    if (el) { 
+      el.classList.remove('hidden');
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(15px)';
+      el.style.transition = 'opacity 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      // Trigger reflow to start animation
+      el.offsetHeight;
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }
+    window.scrollTo(0, 0);
+    document.getElementById('app').scrollTop = 0;
+
+    switch(page) {
+      case 'home': renderHome(); break;
+      case 'shop': renderShop(); break;
+      case 'product': currentProduct = data; renderProduct(); break;
+      case 'checkout': renderCheckout(); break;
+      case 'special': renderSpecial(); break;
+      case 'admin': renderAdmin(); break;
+      case 'order-success': renderOrderSuccess(); break;
+    }
+    lucide.createIcons();
+  }, 200);
+}
+
+// ========== CART ==========
+function addToCart(slug) {
+  const product = PRODUCTS.find(p => p.slug === slug);
+  if (!product) return;
+  const existing = cart.find(c => c.slug === slug);
+  if (existing) { existing.qty++; } else { cart.push({ ...product, qty: 1 }); }
+  updateCartUI();
+  document.getElementById('cartModal').classList.remove('hidden');
+}
+
+function removeFromCart(slug) {
+  cart = cart.filter(c => c.slug !== slug);
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartQty(slug, delta) {
+  const item = cart.find(c => c.slug === slug);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) { cart = cart.filter(c => c.slug !== slug); }
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartUI() {
+  const badge = document.getElementById('cartBadge');
+  const total = cart.reduce((s, c) => s + c.qty, 0);
+  if (total > 0) { badge.classList.remove('hidden'); badge.textContent = total; }
+  else { badge.classList.add('hidden'); }
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+  if (cart.length === 0) {
+    container.innerHTML = '<div class="flex flex-col items-center justify-center h-full text-gray-500"><span class="text-5xl mb-4">🛒</span><p class="font-bebas text-xl">سلتك فارغة</p></div>';
+    footer.innerHTML = '';
+    return;
+  }
+  container.innerHTML = cart.map(item => `
+    <div class="glass rounded-xl p-3 flex items-center gap-3 slide-up">
+      <div class="w-16 h-16 rounded-lg bg-gradient-to-br ${item.gradient} flex items-center justify-center text-2xl flex-shrink-0">${item.emoji}</div>
+      <div class="flex-1 min-w-0">
+        <p class="font-bebas text-lg truncate">${item.title}</p>
+        <p class="text-neon text-sm font-bold">${item.price} EGP</p>
+      </div>
+      <div class="flex items-center gap-1">
+        <button onclick="updateCartQty('${item.slug}',-1)" class="w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700 active:bg-red-500 flex items-center justify-center text-sm font-bold transition-all border border-gray-700 hover:border-red-500">−</button>
+        <span class="w-8 text-center text-sm font-bebas">${item.qty}</span>
+        <button onclick="updateCartQty('${item.slug}',1)" class="w-8 h-8 rounded-lg bg-gray-800 hover:bg-gray-700 active:bg-red-500 flex items-center justify-center text-sm font-bold transition-all border border-gray-700 hover:border-red-500">+</button>
+      </div>
+      <button onclick="removeFromCart('${item.slug}')" class="p-2 hover:text-neon transition hover:bg-gray-800 rounded-lg"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+    </div>
+  `).join('');
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  footer.innerHTML = `
+    <div class="flex justify-between items-center mb-4">
+      <span class="text-gray-400">المجموع</span>
+      <span class="font-bebas text-3xl text-neon">${total} ج.م</span>
+    </div>
+    <button onclick="toggleCartModal();navigateTo('checkout')" class="w-full py-3 bg-neon text-white font-bebas text-xl tracking-wider rounded-xl hover:bg-red-700 transition pulse-glow mag-btn" style="min-height: 50px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">
+      الدفع عند الاستلام 💰
+    </button>
+  `;
+  lucide.createIcons();
+}
+
+function toggleCartModal() {
+  const modal = document.getElementById('cartModal');
+  modal.classList.toggle('hidden');
+}
+
+function toggleMobileMenu() {
+  const m = document.getElementById('mobileMenu');
+  if (m.style.display === 'none' || m.style.display === '') {
+    m.style.display = 'flex';
+  } else {
+    m.style.display = 'none';
+  }
+}
+
+// ========== HOME PAGE ==========
+function renderHome() {     
+  const cfg = window.elementSdk ? window.elementSdk.config : defaultConfig;
+  const heroTitle = cfg.hero_title || defaultConfig.hero_title;
+  const heroSub = cfg.hero_subtitle || defaultConfig.hero_subtitle;
+  const siteLogo = cfg.site_logo || defaultConfig.site_logo;
+  const pc = cfg.primary_color || defaultConfig.primary_color;
+
+  document.getElementById('page-home').innerHTML = `
+    <!-- HERO -->
+    <section class="relative min-h-[400px] flex items-center justify-center overflow-hidden px-4 py-12">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black z-10"></div>
+      <div class="absolute inset-0 opacity-20" style="background:radial-gradient(ellipse at 50% 30%, ${pc}33 0%, transparent 70%);"></div>
+      <div class="relative z-20 text-center slide-up">
+        <div class="inline-block mb-6">
+          <span class="text-5xl float-anim inline-block">${siteLogo}</span>
+        </div>
+        <h1 id="heroTitleEl" class="font-bebas text-6xl md:text-8xl tracking-wider mb-2" style="color: #ff1a1a; font-weight: 900; text-shadow: 
+          0 0 20px #ff1a1a,
+          0 0 40px #ff1a1a,
+          0 0 60px #ff1a1a,
+          0 0 80px #ff1a1a,
+          -20px -20px 40px #ff1a1a,
+          20px -20px 40px #ff1a1a,
+          -20px 20px 40px #ff1a1a,
+          20px 20px 40px #ff1a1a,
+          inset -5px -5px 20px #ff1a1a44;
+          letter-spacing: 3px;">${heroTitle}</h1>
+        <p id="heroSubEl" class="text-gray-400 text-sm md:text-base tracking-widest mb-8 slide-up-d1 font-light italic">${heroSub}</p>
+        
+        <!-- SEARCH BAR -->
+        <div class="mt-8 slide-up-d2 max-w-xl mx-auto">
+          <div class="relative group">
+            <input 
+              id="searchInput" 
+              type="text" 
+              placeholder="Search posters..."
+              class="w-full bg-dark-700 border-2 border-gray-800 rounded-2xl px-6 py-4 text-white font-handwrite text-lg placeholder-gray-600 focus:border-red-500 focus:outline-none transition group-hover:border-red-500"
+              oninput="filterPosters(this.value)"
+            >
+            <i data-lucide="search" class="absolute right-6 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500 group-hover:text-red-500 transition pointer-events-none"></i>
+          </div>
+          <div id="searchResults" class="mt-4 hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES GRID (الكاتيجوريز مباشرة) -->
+    <section class="px-4 py-12 max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+       ${CATEGORIES.map((cat, i) => `
+          <button onclick="currentCategory='${cat.id}';navigateTo('shop')" 
+                  class="category-card glass rounded-3xl text-center group slide-up-d${Math.min(i+1,5)} border-2 fade-borders relative overflow-hidden aspect-square">
+            
+            ${getCategoryImage(cat.id) ? 
+              `<img src="${getCategoryImage(cat.id)}" alt="${cat.name}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">` : 
+              `<div class="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
+                <span class="cat-emoji text-7xl md:text-8xl">${cat.emoji}</span>
+              </div>`
+            }
+
+            <div class="absolute inset-0 flex flex-col justify-center items-center z-10 bg-gradient-to-b from-black/20 via-black/40 to-black/80">
+              <span class="cat-name font-bebas text-4xl md:text-5xl tracking-widest block font-bold" 
+                    style="text-shadow: 3px 3px 15px rgba(0,0,0,0.9); letter-spacing: 2px; animation: colorGlow 2s ease-in-out infinite;">${cat.name}</span>
+              <div class="text-sm text-gray-300 font-mono mt-2">${PRODUCTS.filter(p=>p.category===cat.id).length} POSTERS</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+    </section>
+
+    <!-- FEATURED TRENDING -->
+    <section class="px-4 py-16 max-w-6xl mx-auto">
+      <h2 class="font-handwrite text-4xl text-center mb-12 italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔥 TRENDING NOW</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        ${PRODUCTS.slice(0,4).map((p, i) => productCard(p, i)).join('')}
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-900 px-4 py-8 text-center text-gray-600 text-sm">
+      <p class="font-bebas text-xl tracking-wider mb-2">WALL VIBES © 2026</p>
+      <p class="font-handwrite italic">Premium Poster Store – Egypt 🇪🇬</p>
+    </footer>
+  `;
+  lucide.createIcons();
+}
+
+function filterPosters(query) {
+  const resultsContainer = document.getElementById('searchResults');
+  if (!query.trim()) {
+    resultsContainer.classList.add('hidden');
+    return;
+  }
+
+  const filtered = PRODUCTS.filter(p => 
+    p.title.toLowerCase().includes(query.toLowerCase())
+  );
+
+  if (filtered.length === 0) {
+    resultsContainer.innerHTML = '<p class="text-gray-500 text-sm">No posters found...</p>';
+  } else {
+    resultsContainer.innerHTML = `
+      <div class="glass rounded-2xl p-4 max-h-80 overflow-y-auto space-y-2">
+        ${filtered.map(p => `
+          <button onclick="navigateTo('product', '${p.slug}'); document.getElementById('searchInput').value=''; filterPosters('')" class="w-full text-left p-3 rounded-lg bg-dark-700 hover:bg-dark-600 transition flex items-center gap-3 group">
+            <span class="text-2xl">${p.emoji}</span>
+            <div class="flex-1">
+              <p class="font-handwrite text-white group-hover:text-red-400 transition">${p.title}</p>
+              <p class="text-xs text-gray-500">${p.category.toUpperCase()} • ${p.price} EGP</p>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+  resultsContainer.classList.remove('hidden');
+  lucide.createIcons();
+}
+
+function productCard(p, i) {
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  const gradient = p.gradient || 'from-gray-900 to-black';
+  const imageUrl = p.image || getCategoryImage(p.category);
+  
+  return `
+    <div class="tilt-card glass rounded-2xl overflow-hidden cursor-pointer group slide-up-d${Math.min(i+1,5)}" onclick="navigateTo('product','${p.slug}')">
+      <div class="aspect-[3/4] bg-gradient-to-br ${gradient} flex items-center justify-center relative overflow-hidden">
+        ${imageUrl ? `<img src="${imageUrl}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" onerror="console.error('Image failed:', this.src); this.style.display='none'; this.nextElementSibling?.style.display='block';">` : ''}
+        <span class="text-6xl md:text-7xl group-hover:scale-110 transition-transform duration-500 ${imageUrl ? 'hidden' : ''}" style="display: ${imageUrl ? 'none' : 'block'};">${p.emoji}</span>
+        <div class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black to-transparent"></div>
+      </div>
+      <div class="p-3">
+        <h3 class="font-handwrite text-lg tracking-wider truncate italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${p.title}</h3>
+        <div class="flex justify-between items-center mt-1">
+          <span class="font-bold" style="color:${pc};">${p.price} EGP</span>
+          <span class="text-xs text-gray-500">${p.category.toUpperCase()}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ========== SHOP PAGE ==========
+function renderShop() {
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  const filtered = currentCategory === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === currentCategory);
+
+  document.getElementById('page-shop').innerHTML = `
+    <div class="px-4 max-w-6xl mx-auto pb-16">
+      <!-- CATEGORY SELECTOR BUTTONS - STICKY AT TOP -->
+      <div id="shopCategoryButtons" class="shop-cat-bar justify-start mb-8 sticky top-16 z-40 bg-black bg-opacity-90 py-4 rounded-xl backdrop-blur px-4">
+        <button onclick="currentCategory='all';renderShop()" class="shop-cat-btn px-4 py-2 rounded-full text-sm font-bold transition font-handwrite" style="${currentCategory==='all'?'background:'+pc+';color:#fff':'border: 2px solid '+pc+'; color:'+pc+''}}">ALL</button>
+        ${CATEGORIES.map(cat => `
+          <button onclick="currentCategory='${cat.id}';renderShop()" class="shop-cat-btn px-4 py-2 rounded-full text-sm font-bold transition font-handwrite" style="${currentCategory===cat.id?'background:'+pc+';color:#fff':'border: 2px solid '+pc+'; color:'+pc+''}}">${cat.emoji} ${cat.name}</button>
+        `).join('')}
+      </div>
+
+      <!-- PRODUCTS GRID -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        ${filtered.map((p, i) => productCard(p, i)).join('')}
+      </div>
+      ${filtered.length === 0 ? '<p class="text-center text-gray-500 mt-12 font-handwrite text-2xl italic">No posters in this category yet</p>' : ''}
+    </div>
+  `;
+  lucide.createIcons();
+}
+
+// ========== PRODUCT PAGE ==========
+function renderProduct() {
+  const p = PRODUCTS.find(pr => pr.slug === currentProduct);
+  if (!p) { navigateTo('shop'); return; }
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  const similar = PRODUCTS.filter(pr => pr.category === p.category && pr.slug !== p.slug).slice(0, 4);
+  const imageUrl = p.image || '';
+  const gradient = p.gradient || 'from-gray-900 to-black';
+
+  document.getElementById('page-product').innerHTML = `
+    <div class="px-4 max-w-5xl mx-auto pb-16">
+      <button onclick="navigateTo('shop')" class="flex items-center gap-2 text-gray-400 hover:text-white transition mb-6 slide-up">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> العودة للمتجر
+      </button>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Image -->
+        <div class="zoom-lens rounded-2xl aspect-[3/4] bg-gradient-to-br ${gradient} flex items-center justify-center slide-up-d1 overflow-hidden" onmousemove="handleZoom(event, this)" onmouseleave="resetZoom(this)">
+          ${imageUrl ? `<img src="${imageUrl}" alt="${p.title}" class="w-full h-full object-cover" loading="lazy" id="productEmoji" onerror="console.error('Image failed:', this.src); document.getElementById('productEmoji').style.display='none'; this.nextElementSibling?.style.display='block';">` : ''}
+          <span class="text-[120px] md:text-[160px] pointer-events-none ${imageUrl ? 'hidden' : ''}" id="productEmoji" style="display: ${imageUrl ? 'none' : 'block'};">${p.emoji}</span>
+        </div>
+        <!-- Details -->
+        <div class="flex flex-col justify-center slide-up-d2">
+          <span class="text-xs tracking-widest text-gray-500 mb-2">${p.category.toUpperCase()}</span>
+          <h1 class="font-bebas text-5xl md:text-6xl mb-4">${p.title}</h1>
+          <p class="text-gray-400 leading-relaxed mb-6">${p.desc}</p>
+          <div class="mb-6">
+            <span class="font-bebas text-4xl" style="color:${pc};">${p.price} ج.م</span>
+            <span class="text-gray-500 text-sm ml-2">+ رسوم التوصيل</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-sm text-gray-400"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> ورق لامع فاخر</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><i data-lucide="check-circle" class="w-4 h-4 text-green-500"></i> طباعة بجودة متحف</div>
+            <div class="flex items-center gap-2 text-sm text-gray-400"><i data-lucide="truck" class="w-4 h-4 text-yellow-500"></i> دفع عند الاستلام</div>
+          </div>
+          <button onclick="addToCart('${p.slug}')" class="mt-8 py-4 rounded-xl font-bebas text-2xl tracking-wider text-white pulse-glow mag-btn transition" style="background:${pc}; min-width: 100%; min-height: 55px; font-weight: bold; box-shadow: 0 0 15px rgba(255, 26, 26, 0.4), 0 0 30px rgba(255, 26, 26, 0.2); border: 2px solid rgba(255, 26, 26, 0.3);">
+            أضف للسلة 🛒
+          </button>
+        </div>
+      </div>
+      ${similar.length > 0 ? `
+        <div class="mt-16">
+          <h2 class="font-bebas text-3xl mb-6" style="color:${pc};">بوسترات مشابهة</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            ${similar.map((s, i) => productCard(s, i)).join('')}
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
+  lucide.createIcons();
+}
+
+function handleZoom(e, el) {
+  const rect = el.getBoundingClientRect();
+  const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
+  const y = ((e.clientY - rect.top) / rect.height - 0.5) * 20;
+  const emoji = el.querySelector('span');
+  if (emoji) emoji.style.transform = `scale(1.2) translate(${-x}px, ${-y}px)`;
+}
+function resetZoom(el) {
+  const emoji = el.querySelector('span');
+  if (emoji) emoji.style.transform = 'scale(1) translate(0,0)';
+}
+
+// ========== CHECKOUT ==========
+function renderCheckout() {
+  if (cart.length === 0) { navigateTo('shop'); return; }
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+
+  document.getElementById('page-checkout').innerHTML = `
+    <div class="px-4 max-w-2xl mx-auto pb-16">
+      <h1 class="font-bebas text-5xl text-center mb-8 slide-up">تأكيد الطلب</h1>
+      <div class="glass rounded-2xl p-6 slide-up-d1">
+        <h3 class="font-bebas text-xl mb-4" style="color:${pc};">ملخص الطلب</h3>
+        ${cart.map(item => `
+          <div class="flex justify-between items-center py-2 border-b border-gray-800">
+            <span>${item.emoji} ${item.title} × ${item.qty}</span>
+            <span class="font-bold">${item.price * item.qty} ج.م</span>
+          </div>
+        `).join('')}
+        <div class="flex justify-between items-center pt-4">
+          <span class="font-bebas text-2xl">المجموع</span>
+          <span class="font-bebas text-3xl" style="color:${pc};">${total} ج.م</span>
+        </div>
+      </div>
+      <form onsubmit="submitOrder(event)" class="glass rounded-2xl p-6 mt-6 space-y-4 slide-up-d2">
+        <h3 class="font-bebas text-xl" style="color:${pc};">بيانات التوصيل 📦</h3>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="co_name">الاسم الكامل *</label>
+          <input id="co_name" type="text" required placeholder="أحمد محمد" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="co_phone">رقم الهاتف *</label>
+          <input id="co_phone" type="tel" required placeholder="01XXXXXXXXX" pattern="^01[0-9]{9}$" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base">
+          <p class="text-xs text-gray-600 mt-1">رقم مصري: 01XXXXXXXXX (11 رقم)</p>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="co_city">المحافظة *</label>
+          <select id="co_city" required class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white">
+            <option value="">اختر محافظة</option>
+            <option>القاهرة</option><option>الجيزة</option><option>الإسكندرية</option><option>المنصورة</option><option>طنطا</option><option>أسوان</option><option>الأقصر</option><option>أخرى</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="co_address">العنوان بالكامل *</label>
+          <textarea id="co_address" required rows="2" placeholder="الشارع والعمارة والطابق والشقة" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 resize-none font-bebas text-base"></textarea>
+        </div>
+        <div id="checkoutError" class="text-red-400 text-sm hidden"></div>
+        <button id="checkoutBtn" type="submit" class="w-full py-4 rounded-xl font-bebas text-2xl tracking-wider text-white pulse-glow mag-btn transition" style="background:${pc}; min-height: 50px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">
+          تأكيد الطلب – الدفع عند الاستلام 💰
+        </button>
+      </form>
+    </div>
+  `;
+  lucide.createIcons();
+}
+
+async function submitOrder(e) {
+  e.preventDefault();
+  const name = document.getElementById('co_name').value.trim();
+  const phone = document.getElementById('co_phone').value.trim();
+  const city = document.getElementById('co_city').value;
+  const address = document.getElementById('co_address').value.trim();
+  const errEl = document.getElementById('checkoutError');
+  const btn = document.getElementById('checkoutBtn');
+
+  if (!name || !phone || !city || !address) {
+    errEl.textContent = 'Please fill all fields'; errEl.classList.remove('hidden'); return;
+  }
+  if (!/^01[0-9]{9}$/.test(phone)) {
+    errEl.textContent = 'Invalid Egyptian phone number'; errEl.classList.remove('hidden'); return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'PROCESSING...';
+  errEl.classList.add('hidden');
+
+  const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  const itemsStr = cart.map(c => `${c.title}x${c.qty}`).join(', ');
+
+  const result = await supabaseCall('orders', 'POST', {
+    customer_name: name,
+    phone: phone,
+    address: `${city} - ${address}`,
+    items: itemsStr,
+    total: total,
+    status: 'pending',
+    created_at: new Date().toISOString()
+  });
+
+  if (result.ok) {
+    cart = [];
+    updateCartUI();
+    navigateTo('order-success');
+  } else {
+    errEl.textContent = result.error || 'Something went wrong. Please try again.';
+    errEl.classList.remove('hidden');
+    btn.disabled = false;
+    btn.textContent = 'CONFIRM ORDER – COD 💰';
+  }
+}
+
+// ========== ORDER SUCCESS ==========
+function renderOrderSuccess() {
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  document.getElementById('page-order-success').innerHTML = `
+    <div class="flex flex-col items-center justify-center px-4 py-20 text-center">
+      <div class="celebrate">
+        <div class="text-8xl mb-6">🎉</div>
+        <h1 class="font-bebas text-5xl md:text-7xl mb-4" style="color:${pc};">تم تأكيد الطلب!</h1>
+        <p class="text-gray-400 text-lg max-w-md mb-2">تم استلام طلبك بنجاح!</p>
+        <p class="text-gray-500 mb-8">هنكلمك نأكد معاك خلال ساعات 📞</p>
+        <button onclick="navigateTo('home')" class="px-8 py-3 rounded-xl font-bebas text-xl tracking-wider text-white mag-btn transition" style="background:${pc}; min-height: 50px; min-width: 200px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">
+          العودة للرئيسية
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+// ========== SPECIAL (Design Chat) ==========
+function renderSpecial() {
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  document.getElementById('page-special').innerHTML = `
+    <div class="px-4 max-w-2xl mx-auto pb-16">
+      <div class="text-center mb-10 slide-up">
+        <span class="text-5xl mb-4 block">✨</span>
+        <h1 class="font-bebas text-5xl mb-2">CUSTOM DESIGN</h1>
+        <p class="text-gray-400">Tell us your dream poster and we'll make it real</p>
+      </div>
+      <form onsubmit="submitDesignRequest(event)" class="glass rounded-2xl p-6 space-y-4 slide-up-d1">
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="sp_name">Your Name *</label>
+          <input id="sp_name" type="text" required placeholder="Your name" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="sp_phone">Phone *</label>
+          <input id="sp_phone" type="tel" required placeholder="01XXXXXXXXX" pattern="^01[0-9]{9}$" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600">
+        </div>
+        <div>
+          <label class="block text-sm text-gray-400 mb-1" for="sp_desc">Describe your poster idea *</label>
+          <textarea id="sp_desc" required rows="4" placeholder="E.g. I want a poster of a Ferrari F40 with a sunset background in retro style..." class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 resize-none"></textarea>
+        </div>
+        <div id="specialError" class="text-red-400 text-sm hidden"></div>
+        <div id="specialSuccess" class="text-green-400 text-sm hidden"></div>
+        <button id="specialBtn" type="submit" class="w-full py-4 rounded-xl font-bebas text-2xl tracking-wider text-white pulse-glow mag-btn transition" style="background:${pc}; min-height: 50px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">
+          SEND REQUEST ✨
+        </button>
+      </form>
+    </div>
+  `;
+  lucide.createIcons();
+}
+
+async function submitDesignRequest(e) {
+  e.preventDefault();
+  const name = document.getElementById('sp_name').value.trim();
+  const phone = document.getElementById('sp_phone').value.trim();
+  const desc = document.getElementById('sp_desc').value.trim();
+  const errEl = document.getElementById('specialError');
+  const succEl = document.getElementById('specialSuccess');
+  const btn = document.getElementById('specialBtn');
+
+  errEl.classList.add('hidden');
+  succEl.classList.add('hidden');
+
+  if (!name || !phone || !desc) {
+    errEl.textContent = 'Please fill all fields'; errEl.classList.remove('hidden'); return;
+  }
+
+  btn.disabled = true; btn.textContent = 'SENDING...';
+
+  const result = await supabaseCall('design_requests', 'POST', {
+    design_name: name,
+    design_phone: phone,
+    design_request: desc,
+    status: 'new',
+    created_at: new Date().toISOString()
+  });
+
+  if (result.ok) {
+    succEl.textContent = '✅ Request sent! We\'ll contact you soon.';
+    succEl.classList.remove('hidden');
+    document.getElementById('sp_name').value = '';
+    document.getElementById('sp_phone').value = '';
+    document.getElementById('sp_desc').value = '';
+  } else {
+    errEl.textContent = 'Failed to send. Please try again.';
+    errEl.classList.remove('hidden');
+  }
+  btn.disabled = false; btn.textContent = 'SEND REQUEST ✨';
+}
+
+// ========== ADMIN ==========
+function renderAdmin() {
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+
+  if (!adminUnlocked) {
+    document.getElementById('page-admin').innerHTML = `
+      <div class="flex flex-col items-center justify-center px-4 py-20">
+        <div class="glass rounded-2xl p-8 max-w-sm w-full text-center slide-up">
+          <i data-lucide="lock" class="w-12 h-12 mx-auto mb-4 text-gray-500"></i>
+          <h1 class="font-bebas text-3xl mb-4">ADMIN ACCESS</h1>
+          <form onsubmit="tryAdminLogin(event)">
+            <input id="adminPass" type="password" placeholder="Enter password" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 mb-3 text-center">
+            <div id="adminError" class="text-red-400 text-sm mb-3 hidden"></div>
+            <button type="submit" class="w-full py-3 rounded-xl font-bebas text-xl text-white transition" style="background:${pc}; min-height: 45px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">UNLOCK</button>
+          </form>
+        </div>
+      </div>
+    `;
+    lucide.createIcons();
+    return;
+  }
+
+  const ordersList = orders;
+  const designList = [];
+  const productsList = PRODUCTS;
+  const totalSales = ordersList.reduce((s, o) => s + (o.total || 0), 0);
+  const pending = ordersList.filter(o => o.status === 'pending').length;
+
+  document.getElementById('page-admin').innerHTML = `
+    <div class="px-4 pb-16">
+      <!-- ADMIN HERO SECTION (LIKE HOME PAGE) -->
+      <section class="relative min-h-[300px] flex items-center justify-center overflow-hidden px-4 py-12 mb-12">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black z-10"></div>
+        <div class="absolute inset-0 opacity-20" style="background:radial-gradient(ellipse at 50% 30%, ${pc}33 0%, transparent 70%);"></div>
+        <div class="relative z-20 text-center">
+          <span class="text-6xl block mb-4 float-anim">⚙️</span>
+          <h1 class="font-handwrite text-6xl md:text-7xl mb-2 italic" style="background: linear-gradient(90deg, ${pc}, #ff6b6b, ${pc}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">ADMIN DASHBOARD</h1>
+          <p class="text-gray-400 text-sm tracking-widest">Manage your Wall Vibes empire</p>
+        </div>
+      </section>
+
+      <div class="max-w-6xl mx-auto">
+        <!-- STATS GRID -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 slide-up">
+          <div class="glass rounded-xl p-6 text-center">
+            <p class="text-gray-500 text-xs tracking-widest mb-2">TOTAL ORDERS</p>
+            <p class="font-bebas text-4xl" style="color:${pc};">${ordersList.length}</p>
+          </div>
+          <div class="glass rounded-xl p-6 text-center">
+            <p class="text-gray-500 text-xs tracking-widest mb-2">PENDING</p>
+            <p class="font-bebas text-4xl text-yellow-500">${pending}</p>
+          </div>
+          <div class="glass rounded-xl p-6 text-center">
+            <p class="text-gray-500 text-xs tracking-widest mb-2">REVENUE</p>
+            <p class="font-bebas text-4xl text-green-500">${totalSales} EGP</p>
+          </div>
+          <div class="glass rounded-xl p-6 text-center">
+            <p class="text-gray-500 text-xs tracking-widest mb-2">POSTERS</p>
+            <p class="font-bebas text-4xl text-purple-400">${productsList.length}</p>
+          </div>
+        </div>
+
+        <!-- BRANDING SECTION - LOGO & HERO IMAGE -->
+        <div class="mb-16 slide-up-d1">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="font-handwrite text-4xl italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🔥 BRANDING & HERO</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- LOGO / SITE ICON -->
+            <div class="glass p-6 rounded-2xl border border-white/10">
+              <h3 class="font-bebas text-2xl tracking-wide text-white mb-4">SITE LOGO / ICON</h3>
+              <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-black/50 border border-white/5 flex items-center justify-center text-6xl">
+                <span id="adminLogoPreview">🔥</span>
+              </div>
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">Logo URL or Emoji</label>
+                  <input id="adminLogoUrl" type="text" placeholder="🔥 أو https://example.com/logo.png" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-2 text-white placeholder-gray-600 font-bebas text-sm" value="">
+                </div>
+                <button onclick="updateAdminLogo()" class="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold transition" style="min-height: 40px;">UPDATE LOGO</button>
+              </div>
+            </div>
+
+            <!-- HERO FIRE IMAGE -->
+            <div class="glass p-6 rounded-2xl border border-white/10">
+              <h3 class="font-bebas text-2xl tracking-wide text-white mb-4">HERO FIRE IMAGE</h3>
+              <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-black/50 border border-white/5">
+                <img id="adminHeroImagePreview" src="" alt="Hero Fire" class="w-full h-full object-cover" style="display:none;">
+                <div id="adminHeroImagePlaceholder" class="w-full h-full flex items-center justify-center text-6xl">🔥</div>
+              </div>
+              <div class="space-y-3">
+                <div>
+                  <label class="block text-sm text-gray-400 mb-2">Image URL</label>
+                  <input id="adminHeroImageUrl" type="url" placeholder="https://example.com/fire.png" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-2 text-white placeholder-gray-600 font-bebas text-sm" value="">
+                </div>
+                <button onclick="updateAdminHeroImage()" class="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold transition" style="min-height: 40px;">UPDATE IMAGE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORY COVERS SECTION -->
+        <div class="mb-16 slide-up-d2">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="font-handwrite text-4xl italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🖼️ CATEGORY COVERS</h2>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+           ${CATEGORIES.map(cat => `
+          <div class="glass p-6 rounded-2xl border border-white/10 relative group">
+            <button onclick="editCoverImage('${cat.id}')" 
+                    class="absolute top-4 right-4 z-50 p-3 bg-red-600 hover:bg-red-700 rounded-full shadow-xl transition-all">
+              <i data-lucide="image-plus" class="w-5 h-5 text-white"></i>
+            </button>
+
+            <div class="aspect-square rounded-xl overflow-hidden mb-4 bg-black/50 border border-white/5 relative">
+              ${getCategoryImage(cat.id) ? 
+                `<img src="${getCategoryImage(cat.id)}" class="w-full h-full object-cover">` : 
+                `<div class="w-full h-full flex items-center justify-center text-5xl">${cat.emoji}</div>`
+              }
+            </div>
+            
+            <h3 class="font-bebas text-2xl tracking-wide text-white">${cat.name}</h3>
+            <p class="text-gray-500 font-mono text-sm">${cat.id.toUpperCase()}</p>
+          </div>
+        `).join('')}
+          </div>
+        </div>
+
+        <!-- MANAGE POSTERS SECTION -->
+        <div class="mb-16 slide-up-d2">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="font-handwrite text-4xl italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🎨 MANAGE POSTERS</h2>
+            <button onclick="openAddPosterModal()" class="flex items-center gap-2 px-4 py-2 rounded-lg transition text-white font-bebas" style="background:${pc}; min-height: 40px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">
+              <i data-lucide="plus" class="w-5 h-5"></i> ADD POSTER
+            </button>
+          </div>
+
+          <!-- Category Tabs -->
+          <div class="flex flex-wrap gap-2 mb-6" id="posterTabs">
+            ${CATEGORIES.map(cat => `
+              <button onclick="showPosterCategory('${cat.id}')" class="px-4 py-2 rounded-lg text-sm font-handwrite font-bold transition italic" id="tab-${cat.id}" style="background: ${cat.id === 'cars' ? pc : '#1a1a1a'}; color: ${cat.id === 'cars' ? '#fff' : '#888'};">
+                ${cat.emoji} ${cat.name}
+              </button>
+            `).join('')}
+          </div>
+
+          <!-- Posters Grid -->
+          <div id="postersContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- سيتم ملؤها بواسطة showPosterCategory -->
+          </div>
+          ${productsList.length === 0 ? '<p class="text-center text-gray-500 py-12 font-bebas text-xl">No posters yet. Add your first poster!</p>' : ''}
+        </div>
+
+        <!-- ORDERS SECTION -->
+        <div class="mb-16 slide-up-d3">
+          <h2 class="font-handwrite text-4xl mb-8 italic" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">📦 ORDERS</h2>
+          ${ordersList.length === 0 ? '<p class="text-gray-500 font-bebas text-xl">No orders yet</p>' : `
+            <div class="space-y-4">
+              ${ordersList.map(o => `
+                <div class="glass rounded-xl p-6">
+                  <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                    <div>
+                      <span class="font-bebas text-lg">${o.customer_name || 'Unknown'}</span>
+                      <span class="text-gray-500 text-sm ml-2">${o.phone || ''}</span>
+                    </div>
+                    <select onchange="updateOrderStatus('${o.id}', this.value)" class="bg-dark-700 border border-gray-800 rounded-lg px-3 py-2 text-sm text-white font-bebas">
+                      <option value="pending" ${o.status==='pending'?'selected':''}>⏳ Pending</option>
+                      <option value="confirmed" ${o.status==='confirmed'?'selected':''}>✅ Confirmed</option>
+                      <option value="shipped" ${o.status==='shipped'?'selected':''}>🚚 Shipped</option>
+                      <option value="delivered" ${o.status==='delivered'?'selected':''}>📦 Delivered</option>
+                    </select>
+                  </div>
+                  <p class="text-sm text-gray-400 mb-1">📍 ${o.city || ''} – ${o.address || ''}</p>
+                  <p class="text-sm text-gray-400 mb-3">🛒 ${o.items || ''}</p>
+                  <div class="flex justify-between items-center">
+                    <span class="font-bebas text-2xl" style="color:${pc};">${o.total || 0} EGP</span>
+                    <span class="text-xs text-gray-600">${o.created_at ? new Date(o.created_at).toLocaleDateString('ar-EG') : ''}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <!-- DESIGN REQUESTS SECTION -->
+        <div class="slide-up-d4">
+          <h2 class="font-handwrite text-4xl mb-8 italic text-purple-400">✨ DESIGN REQUESTS</h2>
+          ${designList.length === 0 ? '<p class="text-gray-500 font-bebas text-xl">No requests yet</p>' : `
+            <div class="space-y-4">
+              ${designList.map(d => `
+                <div class="glass rounded-xl p-6">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="font-bebas text-lg">${d.design_name || 'Unknown'}</span>
+                    <span class="text-gray-500 text-sm">${d.design_phone || ''}</span>
+                  </div>
+                  <p class="text-gray-400 text-sm mb-2 italic">"${d.design_request || ''}"</p>
+                  <span class="text-xs text-gray-600">${d.created_at ? new Date(d.created_at).toLocaleDateString('ar-EG') : ''}</span>
+                </div>
+              `).join('')}
+            </div>
+          `}
+        </div>
+
+        <!-- Logout Button -->
+        <div class="mt-12 text-center">
+          <button onclick="adminUnlocked=false;renderAdmin()" class="text-gray-500 hover:text-neon text-sm flex items-center gap-2 px-6 py-3 rounded-lg hover:bg-gray-800 transition mx-auto font-bebas">
+            <i data-lucide="log-out" class="w-4 h-4"></i> LOGOUT
+          </button>
+        </div>
+      </div>
+
+      <!-- COVER IMAGE EDIT MODAL -->
+      <div id="coverEditModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4 overflow-auto">
+        <div class="glass rounded-2xl p-6 max-w-2xl w-full my-auto slide-up">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-handwrite text-3xl" id="coverModalTitle" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic;">EDIT COVER IMAGE</h2>
+            <button onclick="closeCoverEditModal()" class="p-2 hover:bg-gray-800 rounded-lg transition">
+              <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+          </div>
+
+          <form onsubmit="saveCoverImage(event)" class="space-y-4">
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="coverUrl">Image URL (https://)</label>
+              <input id="coverUrl" type="url" placeholder="https://example.com/image.jpg" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-handwrite">
+              <p class="text-xs text-gray-600 mt-1">Leave empty to use emoji instead</p>
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">أو اختر صورة من الجهاز (Or upload from device)</label>
+              <div class="flex gap-2">
+                <input type="file" id="coverUploadInput" accept="image/*" onchange="handleCoverImageUpload(this)" class="hidden">
+                <button type="button" onclick="document.getElementById('coverUploadInput').click()" class="flex-1 py-3 px-4 rounded-xl border-2 border-dashed border-gray-600 hover:border-gray-400 text-gray-400 hover:text-gray-300 font-handwrite transition">📤 Upload Image</button>
+              </div>
+              <p class="text-xs text-gray-600 mt-2" id="coverUploadPreview"></p>
+            </div>
+
+            <div id="coverError" class="text-red-400 text-sm hidden"></div>
+
+            <div class="flex gap-3">
+              <button type="submit" class="flex-1 py-3 rounded-xl font-bebas text-lg text-white transition" style="background:${pc}; min-height: 45px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">SAVE COVER</button>
+              <button type="button" onclick="closeCoverEditModal()" class="flex-1 py-3 rounded-xl font-bebas text-lg text-white bg-gray-700 hover:bg-gray-600 transition" style="min-height: 45px; font-weight: bold; border: 2px solid rgba(255, 255, 255, 0.1);">CANCEL</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ADD/EDIT POSTER MODAL -->
+      <div id="posterModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4 overflow-auto">
+        <div class="glass rounded-2xl p-6 max-w-2xl w-full my-auto slide-up">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-handwrite text-3xl" id="modalTitle" style="background: linear-gradient(90deg, #ff1a1a, #ff6b6b, #ff1a1a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-style: italic;">ADD NEW POSTER</h2>
+            <button onclick="closeAddPosterModal()" class="p-2 hover:bg-gray-800 rounded-lg transition">
+              <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+          </div>
+
+          <form onsubmit="savePoster(event)" class="space-y-4">
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="posterCategory">Category *</label>
+              <select id="posterCategory" required class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white font-bebas">
+                ${CATEGORIES.map(cat => `<option value="${cat.id}">${cat.emoji} ${cat.name}</option>`).join('')}
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="posterTitle">Poster Name *</label>
+              <input id="posterTitle" type="text" required placeholder="E.g. Ferrari F40 Red" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base">
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="posterPrice">Price (EGP) *</label>
+              <input id="posterPrice" type="number" required min="1" placeholder="149" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base">
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="posterEmoji">Emoji</label>
+              <input id="posterEmoji" type="text" maxlength="2" placeholder="🏎️" value="🎨" class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base">
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2" for="posterDesc">Description</label>
+              <textarea id="posterDesc" rows="2" placeholder="Optional description..." class="w-full bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 resize-none font-bebas text-base"></textarea>
+            </div>
+
+            <div>
+              <label class="block text-sm text-gray-400 mb-2">Image</label>
+              <div class="space-y-2">
+                <div class="flex gap-2">
+                  <input id="posterImage" type="url" placeholder="https://example.com/image.jpg" class="flex-1 bg-dark-700 border border-gray-800 rounded-xl px-4 py-3 text-white placeholder-gray-600 font-bebas text-base" />
+                  <button type="button" onclick="document.getElementById('posterImageFile').click()" class="px-4 py-3 bg-dark-700 border border-gray-800 rounded-xl text-white font-bebas hover:bg-dark-600 transition">
+                    أو رفع ملف
+                  </button>
+                </div>
+                <input id="posterImageFile" type="file" accept="image/*" class="hidden" onchange="handleImageUpload(this)" />
+                <div id="imagePreview" class="text-xs text-gray-500"></div>
+              </div>
+            </div>
+
+            <div id="posterError" class="text-red-400 text-sm hidden"></div>
+
+            <div class="flex gap-3">
+              <button type="submit" class="flex-1 py-3 rounded-xl font-bebas text-lg text-white transition" style="background:#ff1a1a; min-height: 45px; font-weight: bold; box-shadow: 0 0 10px rgba(255, 26, 26, 0.3), 0 0 20px rgba(255, 26, 26, 0.15); border: 2px solid rgba(255, 26, 26, 0.2);">SAVE POSTER</button>
+              <button type="button" onclick="closeAddPosterModal()" class="flex-1 py-3 rounded-xl font-bebas text-lg text-white bg-gray-700 hover:bg-gray-600 transition" style="min-height: 45px; font-weight: bold; border: 2px solid rgba(255, 255, 255, 0.1);">CANCEL</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  `;
+
+  showPosterCategory('cars');
+  lucide.createIcons();
+}
+
+function tryAdminLogin(e) {
+  e.preventDefault();
+  const pass = document.getElementById('adminPass').value;
+  if (pass === ADMIN_PASS) {
+    adminUnlocked = true;
+    renderAdmin();
+  } else {
+    const err = document.getElementById('adminError');
+    err.textContent = 'Wrong password';
+    err.classList.remove('hidden');
+  }
+}
+
+async function saveCoverImage(e) {
+  e.preventDefault();
+  const imageUrl = document.getElementById('coverUrl').value.trim();
+  const errEl = document.getElementById('coverError');
+  
+  if (!currentEditingCategoryId) {
+    errEl.textContent = 'No category selected';
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  if (!imageUrl) {
+    errEl.textContent = 'Please enter an image URL or upload a file';
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  // حفظ الصورة
+  categoryCoverImages[currentEditingCategoryId] = imageUrl;
+  saveCategoryCovers();
+  
+  closeCoverEditModal();
+  renderAdmin();
+}
+
+function editCoverImage(catId) {
+  currentEditingCategoryId = catId;
+  const imageUrl = categoryCoverImages[catId] || '';
+  document.getElementById('coverModalTitle').textContent = `EDIT ${CATEGORIES.find(c => c.id === catId)?.name} COVER`;
+  document.getElementById('coverUrl').value = imageUrl;
+  document.getElementById('coverError').classList.add('hidden');
+  document.getElementById('coverEditModal').classList.remove('hidden');
+}
+
+function openAddPosterModal() {
+  currentEditingPosterId = null;
+  document.getElementById('modalTitle').textContent = 'ADD NEW POSTER';
+  document.getElementById('posterCategory').value = 'cars';
+  document.getElementById('posterTitle').value = '';
+  document.getElementById('posterPrice').value = '';
+  document.getElementById('posterEmoji').value = '🎨';
+  document.getElementById('posterDesc').value = '';
+  document.getElementById('posterImage').value = '';
+  document.getElementById('posterError').classList.add('hidden');
+  document.getElementById('posterModal').classList.remove('hidden');
+  lucide.createIcons();
+}
+
+function closeAddPosterModal() {
+  document.getElementById('posterModal').classList.add('hidden');
+  currentEditingPosterId = null;
+  document.getElementById('posterForm')?.reset();
+}
+
+function handleImageUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const base64 = e.target.result;
+    document.getElementById('posterImage').value = base64;
+    document.getElementById('imagePreview').textContent = `✓ تم تحميل: ${file.name} (${(file.size / 1024).toFixed(2)} KB)`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleCoverImageUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const base64 = e.target.result;
+    document.getElementById('coverUrl').value = base64;
+    document.getElementById('coverUploadPreview').textContent = `✓ تم تحميل: ${file.name}`;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function savePoster(e) {
+  e.preventDefault();
+  const category = document.getElementById('posterCategory').value;
+  const title = document.getElementById('posterTitle').value.trim();
+  const price = parseInt(document.getElementById('posterPrice').value);
+  const emoji = document.getElementById('posterEmoji').value || '🎨';
+  const desc = document.getElementById('posterDesc').value.trim();
+  const imageUrl = document.getElementById('posterImage').value.trim();
+  const errEl = document.getElementById('posterError');
+
+  if (!title || !price) {
+    errEl.textContent = 'الرجاء ملء اسم البوستر والسعر';
+    errEl.classList.remove('hidden');
+    return;
+  }
+
+  const submitBtn = e.target.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'SAVING...';
+
+  try {
+    const slug = title.toLowerCase().replace(/\s+/g, '-');
+    
+    const posterData = {
+      slug: slug,
+      title: title,
+      category: category,
+      price: price,
+      emoji: emoji,
+      desc: desc,
+      image: imageUrl,
+      gradient: 'from-gray-900 to-black'
+    };
+
+    let result;
+    if (currentEditingPosterId) {
+      // Update existing poster
+      result = await supabaseCall('products', 'PATCH', { id: currentEditingPosterId, ...posterData });
+    } else {
+      // Create new poster
+      console.log('Saving poster:', posterData);
+      result = await supabaseCall('products', 'POST', posterData);
+    }
+
+    if (result.ok) {
+      await loadProductsFromSupabase();
+      closeAddPosterModal();
+      renderAdmin();
+    } else {
+      errEl.textContent = 'فشل حفظ البوستر. حاول مرة أخرى.';
+      errEl.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'SAVE POSTER';
+    }
+  } catch (err) {
+    console.error('Error saving poster:', err);
+    errEl.textContent = 'حدث خطأ: ' + err.message;
+    errEl.classList.remove('hidden');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'SAVE POSTER';
+  }
+}
+
+function editPoster(backendId) {
+  console.log('Edit poster clicked with ID:', backendId);
+  const poster = PRODUCTS.find(p => String(p.id) === String(backendId) || String(p.slug) === String(backendId));
+  if (!poster) {
+    console.error('Poster not found with ID:', backendId);
+    return;
+  }
+
+  currentEditingPosterId = backendId;
+  
+  const modalTitle = document.getElementById('modalTitle');
+  const posterCategory = document.getElementById('posterCategory');
+  const posterTitle = document.getElementById('posterTitle');
+  const posterPrice = document.getElementById('posterPrice');
+  const posterEmoji = document.getElementById('posterEmoji');
+  const posterDesc = document.getElementById('posterDesc');
+  const posterImage = document.getElementById('posterImage');
+  const posterModal = document.getElementById('posterModal');
+  
+  if (modalTitle) modalTitle.textContent = 'تعديل البوستر';
+  if (posterCategory) posterCategory.value = poster.category || 'cars';
+  if (posterTitle) posterTitle.value = poster.title || '';
+  if (posterPrice) posterPrice.value = poster.price || '';
+  if (posterEmoji) posterEmoji.value = poster.emoji || '🎨';
+  if (posterDesc) posterDesc.value = poster.desc || '';
+  if (posterImage) posterImage.value = poster.image || '';
+  
+  const imagePreview = document.getElementById('imagePreview');
+  if (imagePreview && poster.image) {
+    imagePreview.textContent = '✓ صورة موجودة: ' + poster.image.substring(0, 50);
+  }
+  
+  const posterError = document.getElementById('posterError');
+  if (posterError) posterError.classList.add('hidden');
+  
+  if (posterModal) {
+    posterModal.classList.remove('hidden');
+    console.log('Modal opened successfully');
+  }
+  
+  if (typeof lucide !== 'undefined') {
+    lucide.createIcons();
+  }
+}
+
+async function deletePoster(backendId) {
+  // عرض modal تأكيد احترافي
+  const confirmModal = document.createElement('div');
+  confirmModal.id = 'deleteConfirmModal';
+  confirmModal.className = 'fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4';
+  confirmModal.innerHTML = `
+    <div class="glass rounded-2xl p-8 max-w-sm w-full text-center slide-up">
+      <i data-lucide="trash-2" class="w-12 h-12 mx-auto mb-4 text-red-500"></i>
+      <h2 class="font-bebas text-2xl mb-4 tracking-wider">DELETE POSTER</h2>
+      <p class="text-gray-400 mb-6">Are you sure you want to delete this poster? This action cannot be undone.</p>
+      <div class="flex gap-4">
+        <button onclick="document.getElementById('deleteConfirmModal').remove()" class="flex-1 py-3 rounded-xl font-bebas text-lg bg-gray-700 hover:bg-gray-600 transition">CANCEL</button>
+        <button onclick="confirmDeletePoster('${backendId}')" class="flex-1 py-3 rounded-xl font-bebas text-lg bg-red-600 hover:bg-red-700 text-white transition">DELETE</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(confirmModal);
+  lucide.createIcons();
+}
+
+async function confirmDeletePoster(backendId) {
+  const result = await supabaseCall('products', 'DELETE', { id: backendId });
+  document.getElementById('deleteConfirmModal')?.remove();
+  if (result.ok) {
+    await loadProductsFromSupabase();
+    const categoryToShow = currentCategory || 'cars';
+    renderAdmin(); // إعادة عرض الإدمن كاملة لتحديث البيانات
+    setTimeout(() => {
+      showPosterCategory(categoryToShow);
+    }, 100);
+  }
+}
+
+function showPosterCategory(catId) {
+  const tabs = document.querySelectorAll('#posterTabs button');
+  const pc = (window.elementSdk ? window.elementSdk.config.primary_color : null) || defaultConfig.primary_color;
+  
+  tabs.forEach(tab => {
+    const isActive = tab.id === `tab-${catId}`;
+    tab.style.background = isActive ? pc : '#1a1a1a';
+    tab.style.color = isActive ? '#fff' : '#888';
+  });
+
+  const container = document.getElementById('postersContainer');
+  const filtered = PRODUCTS.filter(p => p.category === catId);
+  
+  container.innerHTML = filtered.length === 0 
+    ? `<div class="col-span-full text-center text-gray-500 py-8">No posters in this category yet</div>`
+    : filtered.map(p => {
+        const imageUrl = p.image || '';
+        const gradient = p.gradient || 'from-gray-900 to-black';
+        return `
+          <div class="glass rounded-2xl overflow-hidden group">
+            ${imageUrl ? `<img src="${imageUrl}" alt="${p.title}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform" loading="lazy" onerror="console.error('Image failed:', this.src); this.style.display='none'; this.nextElementSibling?.style.display='block';">` : ''}
+            <div class="w-full h-48 ${imageUrl ? 'hidden' : ''} bg-gradient-to-br ${gradient} flex items-center justify-center text-5xl">
+              ${p.emoji || '🎨'}
+            </div>
+            <div class="p-4">
+              <h3 class="font-bebas text-lg tracking-wider truncate">${p.title}</h3>
+              <p class="text-red-400 font-bold text-lg mb-3">${p.price} EGP</p>
+              <div class="flex gap-2">
+                <button onclick="editPoster('${p.id}')" class="flex-1 px-3 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm flex items-center justify-center gap-1 transition font-bold" style="min-height: 36px; box-shadow: 0 0 8px rgba(59, 130, 246, 0.3); border: 1px solid rgba(59, 130, 246, 0.2);">
+                  <i data-lucide="edit" class="w-4 h-4"></i> EDIT
+                </button>
+                <button onclick="deletePoster('${p.id}')" class="flex-1 px-3 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-sm flex items-center justify-center gap-1 transition font-bold" style="min-height: 36px; box-shadow: 0 0 8px rgba(220, 38, 38, 0.3); border: 1px solid rgba(220, 38, 38, 0.2);">
+                  <i data-lucide="trash-2" class="w-4 h-4"></i> DELETE
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+}
+
+async function updateOrderStatus(backendId, newStatus) {
+  const result = await supabaseCall('orders', 'PATCH', { id: backendId, status: newStatus });
+  if (result.ok) {
+    loadOrdersFromSupabase();
+  } else {
+    console.error('Failed to update order status');
+  }
+}
+
+// ========== LOAD DATA FROM SUPABASE ==========
+async function loadProductsFromSupabase() {
+  const result = await supabaseCall('products', 'GET');
+  if (result.ok) {
+    PRODUCTS = result.data.map(o => ({
+      slug: o.slug,
+      title: o.title,
+      category: o.category,
+      price: o.price,
+      emoji: o.emoji || '🎨',
+      desc: o.desc || '',
+      image: o.image || '',
+      gradient: o.gradient || 'from-gray-900 to-black',
+      id: o.id
+    }));
+  }
+}
+
+async function loadOrdersFromSupabase() {
+  const result = await supabaseCall('orders', 'GET');
+  if (result.ok) {
+    orders = result.data;
+  }
+}
+
+// ========== ANIMATIONS ==========
+function startColorGlowAnimation() {
+  const catNames = document.querySelectorAll('.cat-name');
+  catNames.forEach(element => {
+    let colorIndex = 0;
+    const colors = ['#ffffff', '#ff1a1a'];
+    const shadowLevels = [
+      'none',
+      '0 0 10px #ff1a1a, 0 0 20px #ff1a1a88, 0 0 30px #ff1a1a44'
+    ];
+    
+    setInterval(() => {
+      colorIndex = (colorIndex + 1) % 2;
+      element.style.color = colors[colorIndex];
+      element.style.textShadow = shadowLevels[colorIndex];
+    }, 1000); // Change every 1 second for 2 second total cycle
+  });
+}
+
+function startCardZoomAnimation() {
+  const cards = document.querySelectorAll('.category-card');
+  cards.forEach(card => {
+    let isZoomed = false;
+    card.addEventListener('mouseenter', () => {
+      if (!isZoomed) {
+        isZoomed = true;
+        card.style.transform = 'scale(1.05)';
+        card.style.transition = 'transform 0.3s ease-in-out';
+      }
+    });
+    card.addEventListener('mouseleave', () => {
+      isZoomed = false;
+      card.style.transform = 'scale(1)';
+    });
+  });
+}
+
+// ========== ELEMENT SDK ==========
+async function initApp() {
+  try {
+    // Load initial data from Supabase
+    await loadProductsFromSupabase();
+    await loadOrdersFromSupabase();
+
+    // Init Element SDK if available (it might not be loaded)
+    if (typeof window.elementSdk !== 'undefined' && window.elementSdk) {
+      try {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (config) => {
+            const pc = config.primary_color || defaultConfig.primary_color;
+            const tc = config.text_color || defaultConfig.text_color;
+            const bg = config.background_color || defaultConfig.background_color;
+            const sc = config.secondary_color || defaultConfig.secondary_color;
+            const ff = config.font_family || defaultConfig.font_family;
+            const fs = config.font_size || defaultConfig.font_size;
+
+            document.body.style.background = bg;
+            document.body.style.color = tc;
+            document.body.style.fontFamily = `'${ff}', 'Space Mono', monospace`;
+            document.body.style.fontSize = fs + 'px';
+
+            const navT = document.getElementById('navTitle');
+            if (navT) navT.style.fontFamily = `'${ff}', 'Bebas Neue', cursive`;
+
+            // Handle logo - can be emoji or URL
+            const logoEl = document.getElementById('navLogoEl');
+            if (logoEl) {
+              const logoValue = config.site_logo || defaultConfig.site_logo;
+              if (logoValue.startsWith('http')) {
+                logoEl.textContent = '';
+                logoEl.style.backgroundImage = `url(${logoValue})`;
+                logoEl.style.display = 'inline-block';
+              } else {
+                logoEl.textContent = logoValue;
+                logoEl.style.backgroundImage = 'none';
+              }
+            }
+
+            const heroT = document.getElementById('heroTitleEl');
+            if (heroT) {
+              heroT.textContent = config.hero_title || defaultConfig.hero_title;
+              heroT.style.textShadow = `0 0 60px ${pc}44`;
+              heroT.style.fontFamily = `'Caveat', cursive`;
+              heroT.style.fontSize = `${fs * 5}px`;
+              heroT.style.background = `linear-gradient(90deg, ${pc}, #ff6b6b, ${pc})`;
+              heroT.style.webkitBackgroundClip = `text`;
+              heroT.style.webkitTextFillColor = `transparent`;
+              heroT.style.backgroundClip = `text`;
+            }
+            const heroS = document.getElementById('heroSubEl');
+            if (heroS) {
+              heroS.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+              heroS.style.color = sc;
+            }
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; if (window.elementSdk) window.elementSdk.setConfig({ background_color: v }); }},
+              { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; if (window.elementSdk) window.elementSdk.setConfig({ surface_color: v }); }},
+              { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; if (window.elementSdk) window.elementSdk.setConfig({ text_color: v }); }},
+              { get: () => config.primary_color || defaultConfig.primary_color, set: (v) => { config.primary_color = v; if (window.elementSdk) window.elementSdk.setConfig({ primary_color: v }); }},
+              { get: () => config.secondary_color || defaultConfig.secondary_color, set: (v) => { config.secondary_color = v; if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: v }); }},
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => config.font_family || defaultConfig.font_family,
+              set: (v) => { config.font_family = v; if (window.elementSdk) window.elementSdk.setConfig({ font_family: v }); }
+            },
+            fontSizeable: {
+              get: () => config.font_size || defaultConfig.font_size,
+              set: (v) => { config.font_size = v; if (window.elementSdk) window.elementSdk.setConfig({ font_size: v }); }
+            }
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ['site_logo', config.site_logo || defaultConfig.site_logo],
+            ['hero_title', config.hero_title || defaultConfig.hero_title],
+            ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+            ['cat_cars_image', config.cat_cars_image || defaultConfig.cat_cars_image],
+            ['cat_football_image', config.cat_football_image || defaultConfig.cat_football_image],
+            ['cat_cinema_image', config.cat_cinema_image || defaultConfig.cat_cinema_image],
+            ['cat_anime_image', config.cat_anime_image || defaultConfig.cat_anime_image],
+            ['cat_gaming_image', config.cat_gaming_image || defaultConfig.cat_gaming_image],
+            ['cat_minimalist_image', config.cat_minimalist_image || defaultConfig.cat_minimalist_image],
+          ])
+        });
+      } catch (e) {
+        console.warn('Element SDK init failed:', e);
+      }
+    }
+
+    // Load category covers from localStorage
+    loadCategoryCovers();
+    
+    // Start animations
+    setTimeout(() => {
+      startColorGlowAnimation();
+      startCardZoomAnimation();
+    }, 500);
+    
+    navigateTo('home');
+  } catch (err) {
+    console.error('Initialization error:', err);
+    navigateTo('home');
+  }
+}
+
+initApp();
+</script>
+</body>
+</html>
